@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>KEEIIHOSTING PAYMENT</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Segoe UI",sans-serif;
+}
+
+/* ===== VIDEO BG ===== */
+video.bg-video{
+  position:fixed;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  top:0;
+  left:0;
+  z-index:-2;
+  filter:brightness(0.35) blur(2px);
+}
+
+.overlay{
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:#000000aa;
+  z-index:-1;
+}
+
+/* ===== BODY ===== */
+body{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+}
+
+/* ===== CARD ===== */
+.container{
+  background:#0b0f1c;
+  padding:30px;
+  width:95%;
+  max-width:390px;
+  border-radius:20px;
+  text-align:center;
+  border:2px solid #00f0ff;
+  box-shadow:0 0 25px #00f0ff66;
+  max-height:95vh;
+  overflow-y:auto;
+}
+
+h1{
+  color:#00f0ff;
+  margin-bottom:20px;
+  text-shadow:0 0 15px #00f0ff;
+}
+
+/* ===== PAYMENT ===== */
+.payment-box{
+  background:#10162a;
+  border:2px solid #8a2bff;
+  padding:14px;
+  margin:10px 0;
+  border-radius:12px;
+  cursor:pointer;
+  transition:.25s;
+  box-shadow:0 0 10px #8a2bff55;
+}
+
+.payment-box:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 25px #8a2bff;
+}
+
+.method{
+  color:#8a2bff;
+  font-weight:bold;
+}
+
+.number{
+  font-size:14px;
+  margin-top:5px;
+}
+
+/* ===== BUTTONS ===== */
+.btn{
+  display:block;
+  margin-top:12px;
+  padding:11px;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:bold;
+  transition:.25s;
+}
+
+/* QRIS */
+.qris{
+  background:#00f0ff;
+  color:black;
+  box-shadow:0 0 15px #00f0ff;
+}
+
+/* Telegram buttons */
+.telegram{
+  background:#229ED9;
+  box-shadow:0 0 12px #229ED9;
+  color:white;
+}
+
+.btn:hover{
+  transform:scale(1.07);
+}
+
+/* toast */
+.toast{
+  position:fixed;
+  bottom:20px;
+  background:#00f0ff;
+  color:black;
+  padding:10px 18px;
+  border-radius:10px;
+  opacity:0;
+  transition:.3s;
+}
+.toast.show{opacity:1;}
+</style>
+</head>
+
+<body>
+
+<!-- ===== VIDEO ===== -->
+<video autoplay muted loop playsinline class="bg-video">
+  <source src="https://h.uguu.se/oVbOOqJb.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<!-- ===== MUSIC ===== -->
+<audio id="bgm" autoplay loop>
+  <source src="https://n.uguu.se/JtyvWjwG.mp3" type="audio/mp3">
+</audio>
+
+<div class="container">
+
+  <h1>⚡ KEEIIHOSTING PAYMENT ⚡</h1>
+
+  <!-- PAYMENT -->
+  <div class="payment-box" onclick="copyNumber('0895401998581')">
+    <div class="method">DANA</div>
+    <div class="number">0895401998581<br>A/N ANI</div>
+  </div>
+
+  <div class="payment-box" onclick="copyNumber('0895401998581')">
+    <div class="method">GOPAY</div>
+    <div class="number">0895401998581<br>A/N RADITYA</div>
+  </div>
+
+  <!-- QRIS -->
+  <a href="http://tmpfiles.org/dl/23223024/1770577633501.jpg" target="_blank" class="btn qris">
+    💳 OPEN QRIS
+  </a>
+
+  <!-- TELEGRAM LINKS -->
+  <!-- GANTI SEMUA LINK DI BAWAH -->
+  <a href="https://t.me/keiiihostting" target="_blank" class="btn telegram">
+    👤 Telegram Admin
+  </a>
+
+  <a href="https://t.me/+TTijnJTmIVMwZTg1" target="_blank" class="btn telegram">
+    👥 Telegram Group
+  </a>
+
+  <a href="https://t.me/TestimoniKeiiStore" target="_blank" class="btn telegram">
+    📢 Telegram Channel
+  </a>
+
+</div>
+
+<div id="toast" class="toast">✔ Nomor disalin</div>
+
+<script>
+function copyNumber(num){
+  navigator.clipboard.writeText(num);
+  const toast=document.getElementById("toast");
+  toast.classList.add("show");
+  setTimeout(()=>toast.classList.remove("show"),1500);
+}
+
+/* biar musik tetap play di HP */
+document.body.addEventListener("click",()=>{
+  document.getElementById("bgm").play();
+});
+</script>
+
+</body>
+</html>

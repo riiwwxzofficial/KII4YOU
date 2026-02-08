@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>KEIISTORE PAYMENT</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI',sans-serif;
+}
+
+body{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  color:white;
+}
+
+/* CARD */
+.container{
+  width:95%;
+  max-width:380px;
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(14px);
+  border-radius:20px;
+  padding:25px;
+  box-shadow:0 0 45px rgba(0,198,255,.25);
+  text-align:center;
+  animation:fade .8s ease;
+}
+
+@keyframes fade{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+h1{
+  margin-bottom:18px;
+  font-size:22px;
+}
+
+/* PAYMENT BOX */
+.pay-box{
+  background:rgba(255,255,255,0.12);
+  padding:14px;
+  border-radius:14px;
+  margin-bottom:12px;
+  cursor:pointer;
+  transition:.25s;
+}
+
+.pay-box:hover{
+  background:rgba(0,198,255,0.25);
+  transform:scale(1.03);
+  box-shadow:0 0 15px rgba(0,198,255,.5);
+}
+
+.label{
+  font-size:13px;
+  opacity:.7;
+}
+
+.number{
+  font-weight:bold;
+  font-size:15px;
+  margin-top:4px;
+}
+
+.name{
+  font-size:12px;
+  opacity:.8;
+}
+
+/* QRIS */
+.qris img{
+  width:170px;
+  margin-top:8px;
+  border-radius:12px;
+}
+
+/* BUTTON */
+button{
+  width:100%;
+  margin-top:8px;
+  padding:10px;
+  border:none;
+  border-radius:10px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:.25s;
+}
+
+/* Telegram style */
+a:nth-of-type(1) button{ background:#2AABEE; color:white; }
+a:nth-of-type(2) button{ background:#229ED9; color:white; }
+a:nth-of-type(3) button{ background:#1c8adb; color:white; }
+
+button:hover{
+  transform:scale(1.05);
+}
+
+/* TOAST */
+.toast{
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  background:#00c6ff;
+  color:black;
+  padding:8px 14px;
+  border-radius:8px;
+  opacity:0;
+  transition:.3s;
+  font-size:13px;
+}
+
+.toast.show{
+  opacity:1;
+}
+
+.footer{
+  margin-top:15px;
+  font-size:12px;
+  opacity:.6;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>💳 KEIISTORE PAYMENT</h1>
+
+  <!-- DANA -->
+  <div class="pay-box" onclick="copyText('0895401998581')">
+    <div class="label">DANA</div>
+    <div class="number">0895401998581</div>
+    <div class="name">A/N ANIG</div>
+  </div>
+
+  <!-- GOPAY -->
+  <div class="pay-box" onclick="copyText('0895401998581')">
+    <div class="label">GOPAY</div>
+    <div class="number">0895401998581</div>
+    <div class="name">A/N RADITYA</div>
+  </div>
+
+  <!-- QRIS -->
+  <div class="qris">
+    <div class="label">QRIS</div>
+    <img src="https://iili.io/fpxyFBn.jpg">
+  </div>
+
+  <!-- TELEGRAM -->
+  <a href="https://t.me/keiiihostting?text=Halo%20admin%20saya%20mau%20konfirmasi%20pembayaran" target="_blank">
+    <button>💬 Chat Admin Telegram</button>
+  </a>
+
+  <a href="https://t.me/TestimoniKeiiStore" target="_blank">
+    <button>📢 Telegram Channel</button>
+  </a>
+
+  <a href="https://t.me/+TTijnJTmIVMwZTg1" target="_blank">
+    <button>👥 Telegram Group</button>
+  </a>
+
+  <div class="footer">
+    Klik nomor untuk otomatis copy ✔
+  </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script>
+function copyText(text){
+  navigator.clipboard.writeText(text);
+  const toast = document.getElementById("toast");
+  toast.innerText = "✔ Nomor disalin: " + text;
+  toast.classList.add("show");
+
+  setTimeout(()=>{
+    toast.classList.remove("show");
+  },1500);
+}
+</script>
+
+</body>
+</html>
